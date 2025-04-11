@@ -3,7 +3,7 @@ import 'package:lista_leitura/models/livro_model.dart';
 import 'package:lista_leitura/widgets/linha_horizontal.dart';
 
 class ListaLivros extends StatelessWidget {
-  ListaLivros({required this.listaLivros});
+  const ListaLivros({required this.listaLivros});
   
   final List<LivroModel> listaLivros;
 

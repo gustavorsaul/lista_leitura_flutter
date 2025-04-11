@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lista_leitura/models/livro_model.dart';
+import 'package:lista_leitura/pages/formulario_livro_page.dart';
 import 'package:lista_leitura/widgets/linha_horizontal.dart';
 import 'package:lista_leitura/widgets/lista_livros.dart';
 
@@ -35,7 +37,13 @@ class ListaLivrosPageState extends State<ListaLivrosPage> {
                           ),
                         ),
                         FloatingActionButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              CupertinoPageRoute(
+                                builder: (_) => FormularioLivroPage(),
+                              ),
+                            );
+                          },
                           mini: true,
                           backgroundColor: const Color.fromARGB(
                             255,
