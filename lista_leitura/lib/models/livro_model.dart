@@ -1,7 +1,5 @@
-import 'dart:collection';
 
 class LivroModel {
-
   LivroModel({
     required this.id,
     required this.titulo,
@@ -24,5 +22,4 @@ class LivroModel {
   String toString() {
     return "LivroModel: título: $titulo, descrição: $descricao, lido: $lido";
   }
-
 }

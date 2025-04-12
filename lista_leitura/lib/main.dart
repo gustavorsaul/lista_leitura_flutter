@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lista_leitura/pages/formulario_livro_page.dart';
 import 'package:lista_leitura/pages/lista_livros_page.dart';
 
 void main() {
@@ -19,14 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        textTheme: GoogleFonts.lexendDecaTextTheme(
-          Theme.of(context).textTheme,
-        ),
+        textTheme: GoogleFonts.lexendDecaTextTheme(Theme.of(context).textTheme),
       ),
-      routes: {
-        "/": (context) => ListaLivrosPage(),
-      },
+      routes: {"/": (context) => ListaLivrosPage()},
     );
   }
 }
-

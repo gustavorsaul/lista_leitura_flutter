@@ -13,7 +13,6 @@ class ListaLivrosPage extends StatefulWidget {
 }
 
 class ListaLivrosPageState extends State<ListaLivrosPage> {
-
   late Set<LivroModel> meusLivros;
 
   late Function(LivroModel) onCadastrar;
@@ -64,7 +63,8 @@ class ListaLivrosPageState extends State<ListaLivrosPage> {
                               MaterialPageRoute(
                                 builder:
                                     (_) => FormularioLivroPage(
-                                      livro: null, // Pass a valid LivroModel instance or null if applicable
+                                      livro:
+                                          null, // Pass a valid LivroModel instance or null if applicable
                                       onCadastrar: onCadastrar,
                                     ),
                               ),

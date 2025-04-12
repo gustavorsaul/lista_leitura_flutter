@@ -4,12 +4,15 @@ import 'package:lista_leitura/pages/formulario_livro_page.dart';
 import 'package:lista_leitura/widgets/linha_horizontal.dart';
 
 class ListaLivros extends StatelessWidget {
-  const ListaLivros({required this.listaLivros, required this.onCadastrar, required this.onDeletar});
+  const ListaLivros({
+    required this.listaLivros,
+    required this.onCadastrar,
+    required this.onDeletar,
+  });
 
   final Set<LivroModel> listaLivros;
   final Function(LivroModel) onCadastrar;
   final Function(LivroModel) onDeletar;
-  
 
   @override
   Widget build(BuildContext context) {
