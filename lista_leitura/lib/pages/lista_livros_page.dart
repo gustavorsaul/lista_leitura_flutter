@@ -13,11 +13,25 @@ class ListaLivrosPage extends StatefulWidget {
 }
 
 class ListaLivrosPageState extends State<ListaLivrosPage> {
-  late List<LivroModel> meusLivros;
+
+  late Set<LivroModel> meusLivros;
+
+  late Function(LivroModel) onCadastrar;
+  late Function(LivroModel) onDeletar;
 
   @override
   void initState() {
-    meusLivros = [];
+    meusLivros = {};
+    onCadastrar = (LivroModel LivroModel) {
+      setState(() {
+        meusLivros.add(LivroModel);
+      });
+    };
+    onDeletar = (LivroModel livroModel) {
+      setState(() {
+        meusLivros.remove(livroModel);
+      });
+    };
     super.initState();
   }
 
@@ -48,14 +62,12 @@ class ListaLivrosPageState extends State<ListaLivrosPage> {
                           onPressed: () {
                             Navigator.of(context).push(
                               MaterialPageRoute(
-                                builder: (_) => FormularioLivroPage(
-                                  onCadastrar: (livro) {
-                                    setState(() {
-                                      meusLivros.add(livro);
-                                    });
-                                  },
-                                )
-                              )
+                                builder:
+                                    (_) => FormularioLivroPage(
+                                      livro: null, // Pass a valid LivroModel instance or null if applicable
+                                      onCadastrar: onCadastrar,
+                                    ),
+                              ),
                             );
                           },
                           mini: true,
@@ -71,7 +83,11 @@ class ListaLivrosPageState extends State<ListaLivrosPage> {
                     ),
                   ),
                   LinhaHorizontal(),
-                  ListaLivros(listaLivros: meusLivros),
+                  ListaLivros(
+                    listaLivros: meusLivros,
+                    onCadastrar: onCadastrar,
+                    onDeletar: onDeletar,
+                  ),
                   if (meusLivros.isNotEmpty) LinhaHorizontal(),
                 ],
               ),

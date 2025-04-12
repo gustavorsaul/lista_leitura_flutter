@@ -1,14 +1,24 @@
+import 'dart:collection';
+
 class LivroModel {
 
   LivroModel({
+    required this.id,
     required this.titulo,
     this.descricao = " ",
     this.lido = false,
   });
 
+  int id;
   String titulo;
   String descricao;
   bool lido;
+
+  @override
+  bool operator ==(Object o) => o is LivroModel && id == o.id;
+
+  @override
+  int get hashCode => id;
 
   @override
   String toString() {
@@ -16,9 +26,3 @@ class LivroModel {
   }
 
 }
-
-final listaLivrosMock = [
-  LivroModel(titulo: "Código Limpo", descricao: "Ótimo livro. Recomendo", lido: true),
-  LivroModel(titulo: "C completo e total", lido: false),
-  LivroModel(titulo: "JAVA: use a cabeça", descricao: "Livro bom", lido: true),
-];

@@ -1,10 +1,13 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:lista_leitura/models/livro_model.dart';
 
 class FormularioLivroPage extends StatefulWidget {
 
-  FormularioLivroPage({required this.onCadastrar});
+  FormularioLivroPage({this.livro, required this.onCadastrar});
 
+  final LivroModel? livro;
   final Function(LivroModel) onCadastrar;
 
   @override
@@ -13,13 +16,14 @@ class FormularioLivroPage extends StatefulWidget {
 
 class _FormularioLivroPage extends State<FormularioLivroPage> {
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late LivroModel livro;
 
   @override
   void initState() {
+    _formKey = GlobalKey<FormState>();
+    livro = widget.livro ?? LivroModel(id: Random().nextInt(255), titulo: '', descricao: '');
     super.initState();
-    livro = LivroModel(titulo: '', descricao: '');
   }
 
   @override
