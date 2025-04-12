@@ -13,6 +13,14 @@ class ListaLivrosPage extends StatefulWidget {
 }
 
 class ListaLivrosPageState extends State<ListaLivrosPage> {
+  late List<LivroModel> meusLivros;
+
+  @override
+  void initState() {
+    meusLivros = [];
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +47,15 @@ class ListaLivrosPageState extends State<ListaLivrosPage> {
                         FloatingActionButton(
                           onPressed: () {
                             Navigator.of(context).push(
-                              CupertinoPageRoute(
-                                builder: (_) => FormularioLivroPage(),
-                              ),
+                              MaterialPageRoute(
+                                builder: (_) => FormularioLivroPage(
+                                  onCadastrar: (livro) {
+                                    setState(() {
+                                      meusLivros.add(livro);
+                                    });
+                                  },
+                                )
+                              )
                             );
                           },
                           mini: true,
@@ -57,8 +71,8 @@ class ListaLivrosPageState extends State<ListaLivrosPage> {
                     ),
                   ),
                   LinhaHorizontal(),
-                  ListaLivros(listaLivros: listaLivrosMock),
-                  LinhaHorizontal(),
+                  ListaLivros(listaLivros: meusLivros),
+                  if (meusLivros.isNotEmpty) LinhaHorizontal(),
                 ],
               ),
               Padding(

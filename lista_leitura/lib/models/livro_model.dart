@@ -10,6 +10,10 @@ class LivroModel {
   String descricao;
   bool lido;
 
+  @override
+  String toString() {
+    return "LivroModel: título: $titulo, descrição: $descricao, lido: $lido";
+  }
 
 }
 

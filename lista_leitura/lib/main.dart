@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lista_leitura/pages/formulario_livro_page.dart';
 import 'package:lista_leitura/pages/lista_livros_page.dart';
 
 void main() {
@@ -22,7 +23,9 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: const ListaLivrosPage(),
+      routes: {
+        "/": (context) => ListaLivrosPage(),
+      },
     );
   }
 }
